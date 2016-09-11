@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登陆</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="Rose Zhao" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+    <script src="../js/angular.min.js"></script>
+    <style>
+        body,html{width:100%;height:100%;overflow:hidden}
+    </style>
+    <body ng-app="login" ng-controller="mainControler">
+        <section class="wrapper height">
+            <div class="abCenter height r">
+                <div class="loginBox">
+                <img src="../img/login_logo.png" />
+                    <form method="get" class="ordForm" name="loginForm" ng-submit="loginSubmit()">
+                        <div class="inputGroup form-group">
+                            <label class="loginIcon"> <i class="fa fa-user"></i>
+                            </label>
+                            <input type="text" name="userName" placeholder="用户名"
+                            ng-class="{ 'error':loginForm.userName.$invalid && loginForm.userName.touched }"
+                            class="form-control"
+                            ng-model='userName'
+                            ng-minlength='6'
+                            required
+                             />
+                             <div ng-show="loginForm.userName.$invalid && loginForm.userName.touched">输入错误</div>
+                        </div>
+                        <div class="inputGroup  form-group">
+                            <label class="loginIcon"> <i class="fa fa-lock"></i>
+                            </label>
+                            <input type="text" name="userpwd" placeholder="密码"
+                            ng-minlength = '6' ng-maxlength = '16' required ng-model='userpwd'
+                             />
+                        </div>
+                        <div class="inputGroup width">
+                            <input type="submit" class="loginButton btn btn-primary" ng-disabled="loginForm.$invalid" name="" value="登陆" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="copyRight">
+            Copyright © 2007-2016 SkyMoons.com, All Rights Reserved成都天象互动科技有限公司
+            </div>
+        </section>
+
+        <script>
+        var app  = angular.module('login', []);
+           app.controller('mainControler', function ($scope) {
+            $scope.loginSubmit = function(){
+                console.log('表单提好了');
+            }
+
+            })
+        </script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+{
+	"datas": [
+		{
+			"gameName": "武林外传",
+			"num": [{
+					"input": "595568",
+					"disktop": "5952854",
+					"resgiter": "55522",
+					"login": "45252",
+					"loginm": "4555223"
+				}, {
+					"input": "59557768",
+					"disktop": "52854",
+					"resgiter": "5522",
+					"login": "4252",
+					"loginm": "45223"
+				}
+			]
+		},
+		{
+			"gameName": "花千骨",
+			"num": [{
+					"input": "595568",
+					"disktop": "5952854",
+					"resgiter": "55522",
+					"login": "45252",
+					"loginm": "4555223"
+				}, {
+					"input": "59557768",
+					"disktop": "52854",
+					"resgiter": "5522",
+					"login": "4252",
+					"loginm": "45223"
+				}
+			]
+		},
+		{
+			"gameName": "三国1",
+			"num": [{
+					"input": "595568",
+					"disktop": "5952854",
+					"resgiter": "55522",
+					"login": "45252",
+					"loginm": "4555223"
+				}, {
+					"input": "59557768",
+					"disktop": "52854",
+					"resgiter": "5522",
+					"login": "4252",
+					"loginm": "45223"
+				}
+			]
+		}
+	]
+}

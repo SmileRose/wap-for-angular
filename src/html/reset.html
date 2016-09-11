@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>重置</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="Rose Zhao" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <!--电话号码识别-->
+    <meta name="format-detection" content="telephone=no" />
+    <!--邮箱识别-->
+    <meta name="format-detection" content="email=no" />
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/login.css" />
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css" />
+    <style>
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden
+    }
+    </style>
+<body ng-app="myApp" ng-controller="reset" ng-cloak>
+    <a href="javascript:history.go(-1);" class="back"> <i class="fa fa-chevron-left"></i>
+    </a>
+    <section class="wrapper height">
+        <div class="abCenter height r">
+            <div class="loginBox">
+                <img src="../img/login_logo.png" />
+                <form class="ordForm" name="resetForm" ng-submit="resetFormSubmit()">
+                    <div class="inputGroup">
+                        <label class="loginIcon"> <i class="fa fa-lock"></i>
+                        </label>
+                        <input type="text" name="oldPwd" placeholder="旧密码"
+                        ng-minlength='6'
+                        ng-maxlength='16'
+                        ng-model="userdata.oldPwd" required />
+                        <p class="error" ng-if='(
+                        resetForm.oldPwd.$error.minlength||
+                        resetForm.oldPwd.$error.maxlength) &&
+                        resetForm.oldPwd.$touched'>输入6到16位字符</p>
+                        <p class="error" ng-if='resetForm.oldPwd.$error.required &&
+                            resetForm.oldPwd.$touched'>不能为空</p>
+                    </div>
+                    <div class="inputGroup">
+                        <label class="loginIcon">
+                            <i class="fa fa-lock"></i>
+                        </label>
+                        <input type="password" name="newPwd" placeholder="新密码" ng-minlength='6' ng-maxlength='16' ng-model="userdata.newPwd" required />
+                        <p class="error" ng-if="resetForm.newPwd.$error.required && resetForm.newPwd.$touched">密码不能为空</p>
+                        <p class="error" ng-if="(resetForm.newPwd.$error.minlength || resetForm.newPwd.$error.maxlength) && resetForm.newPwd.$touched">密码为6到16位的字符</p>
+                    </div>
+
+                    <div class="inputGroup">
+                        <label class="loginIcon">
+                            <i class="fa fa-lock"></i>
+                        </label>
+                        <input type="password" name="againPwd" placeholder="再输入一次" ng-minlength='6' ng-maxlength='16' ng-model="userdata.againPwd" compare='userdata.newPwd' required />
+                        <p class="error" ng-if="resetForm.againPwd.$error.required && resetForm.againPwd.$touched">密码不能为空</p>
+                        <p class="error" ng-if="resetForm.againPwd.$error.compare && resetForm.againPwd.$touched">两次密码不一致</p>
+                    </div>
+
+                    <div class="inputGroup width">
+                        <!--  <input type="submit" class="loginButton btn btn-primary"
+                            ng-disabled="resetForm.$invalid"
+                             name="" value="修改" />
+                        -->
+                        <input type="submit" class="btn btn-primary loginButton " ng-disabled="resetForm.$invalid" name="" value="修改" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="copyRight">
+            Copyright © 2007-2016 SkyMoons.com, All Rights Reserved成都天象互动科技有限公司
+        </div>
+    </section>
+    <script src="//cdn.bootcss.com/angular.js/1.3.8/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('reset', function($scope) {
+                $scope.userdata = {};
+                $scope.resetFormSubmit = function() {
+                    if ($scope.resetForm.$invalid) {
+                        console.log('检查您的信息')
+                    } else {
+                        console.log($scope.userdata);
+                        console.log('提交成功')
+                    }
+                }
+            })
+            .directive('compare', function() {
+                var o ={};
+                o.strict = 'AE';
+                o.scope = {
+                   orgText: '=compare'
+                }
+                o.require = 'ngModel';
+                o.link = function(sco, ele, att, con)
+                {
+                    con.$validators.compare = function(v){
+                        return v == sco.orgText;
+                    }
+                    sco.$watch('orgText' , function(){
+                        con.$validate();
+                    });
+                }
+                return o;
+            })
+        </script>
+</body>
+</html>

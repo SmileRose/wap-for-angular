@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>任务列表</title>
+        @@include('./head_min.html')
+        <link rel="stylesheet" type="text/css" href="../css/checkbox.css">
+<body>
+        <!--head-->
+        <div class="navbar navbar-inverse navbar-data navbar-fixed-top" id="menu">
+                <div class="container">
+                        <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand"  href="javascript:history.go(-1);"> <i class="fa fa-chevron-left"></i>
+                                </a>
+                                <a class="navbar-brand" href="index.html">后台数据管理系</a>
+                        </div>
+                        <div class="navbar-collapse collapse ">
+                                <ul class="nav navbar-nav navbar-right">
+                                        <li>
+                                                <a href="func_section.html">栏目管理</a>
+                                        </li>
+                                        <li>
+                                                <a href="func_task.html">任务管理</a>
+                                        </li>
+                                        <li>
+                                                <a href="func_role.html">角色列表</a>
+                                        </li>
+                                </ul>
+                        </div>
+                </div>
+        </div>
+        <!-- /header -->
+        <div class="wrapper">
+                <div class="layout">
+                        <div class="container">
+                                <form class="form-horizontal">
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">任务标题</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <input type="text" class="form-control"  />
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">任务内容</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <textarea class="form-control col-sm-10" rows="3"></textarea>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">抄送人</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <input type="number" class="form-control" />
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">优先级</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <select name="" class="form-control">
+                                                                <option value="">高</option>
+                                                                <option value="">中</option>
+                                                                <option value="">低</option>
+                                                        </select>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">需求时间</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <input type="date" class="form-control" id="datatime" />
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">数据类型</label>
+                                                <div class="col-sm-9 col-xs-9">
+                                                        <select name="" class="form-control">
+                                                                <option value="">添加数据</option>
+                                                                <option value="">功能优化</option>
+                                                                <option value="">低</option>
+                                                        </select>
+                                                </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="col-sm-3 col-xs-3 control-label">所属游戏</label>
+                                                <div class="checkbox col-sm-9 col-xs-9">
+                                                        <div class="checkbox checkbox-primary pull-left">
+                                                                <input class="styled" type="checkbox" />
+                                                                <label>三国威力加强版</label>
+                                                        </div>
+                                                        <div class="checkbox checkbox-primary pull-left">
+                                                                <input class="styled" type="checkbox" />
+                                                                <label>武林外传</label>
+                                                        </div>
+                                                        <div class="checkbox checkbox-primary pull-left">
+                                                                <input class="styled" type="checkbox" />
+                                                                <label>赵云战纪</label>
+                                                        </div>
+                                                        <div class="checkbox checkbox-primary pull-left">
+                                                                <input class="styled" type="checkbox" />
+                                                                <label>皮卡丘</label>
+                                                        </div>
+                                                        <div class="checkbox checkbox-primary pull-left">
+                                                                <input class="styled" type="checkbox" />
+                                                                <label>三国一</label>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="form-group">
+                                        <label class="col-sm-3 col-xs-3 control-label">&nbsp;</label>
+                                        <div class="checkbox col-sm-9 col-xs-9">
+                                                <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i>
+                                                        确定
+                                                </button>
+                                        </div>
+                                </div>
+                        </form>
+                </div>
+        </div>
+
+<!--导航条-->
+@@include('./footer.html')
+<!--公共js-->
+@@include('./js.html')
+<!--/公共js-->
+        <script src='../js/bootstrap-datetimepicker.min.js'></script>
+<script>
+if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+        new WOW().init();
+};
+
+
+$('#datatime').datetimepicker({//日期
+    format: "yyyy-mm-dd",
+    autoclose: true,
+    todayBtn: true,
+    todayHighlight: 1,
+    startView: 2,
+    minView: 2,
+    forceParse: 0
+});
+</script>
+</body>
+</html>
