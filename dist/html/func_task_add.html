@@ -203,6 +203,7 @@
 <script src="../js/index.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/wow.min.js"></script>
+
 <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
 <!-- /js引入 -->
 
@@ -224,36 +225,7 @@
         });
 //vue
 //多选
-var wm = new Vue({
-    el: '#checkGames',
-    data: {
-       checkedNames: []
-     }
-});
-//下拉选 select
-var select = new Vue({
-    el: '#task-order',
-    data: {
-        selected: 'A',
-        options: [
-            {text: '高', value: 'A'},
-            {text: '中', value: 'B'},
-            {text: '低', value: 'C'},
-        ]
-    }
-});
-//数据类型
-var selectType = new Vue({
-    el: '#task-type',
-    data: {
-        selected: 'B', //默认选中
-        options: [
-            {text: '前端表现', value: 'B'},
-            {text: '数据查询', value: 'A'},
-            {text: '功能优化', value: 'C'}
-        ]
-    }
-});
+
 </script>
 </body>
 </html>
